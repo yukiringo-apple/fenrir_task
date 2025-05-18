@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation Sample</title>
+</head>
+<body>
+    <div class="center">
+        <div class="btn-margin">
+            <button id="getLocation" class="btn btn-outline-primary btn-lg">
+                現在位置を取得する
+            </button>
+        </div>
+
+        <div class="">
+            <select class="areaRadius">
+                <option>100m</option>
+                <option>200m</option>
+                <option>300m</option>
+                <option>400m</option>
+                <option>500m</option>
+            </select>
+        </div>
+        <div class="txt-margin">
+            <p>緯度：<span id="latitude">???</span><span>度</span></p>
+            <p>経度：<span id="longitude">???</span><span>度</span></p>
+        </div>
+    </div>
+
+
+    <script src="./js/index.js"></script>
+    <script src="./js/geolocation.js"></script>
+</body>
+</html>
