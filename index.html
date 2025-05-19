@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Geolocation Sample</title>
 </head>
+
 <body>
     <div class="center">
         <div class="btn-margin">
@@ -12,6 +14,18 @@
             </button>
         </div>
 
+
+        <div class="txt-margin">
+            <p>緯度：<span id="latitude">???</span><span>度</span></p>
+            <p>経度：<span id="longitude">???</span><span>度</span></p>
+        </div>
+    </div>
+
+
+
+
+
+    <div>
         <div class="">
             <select class="areaRadius">
                 <option>100m</option>
@@ -21,14 +35,12 @@
                 <option>500m</option>
             </select>
         </div>
-        <div class="txt-margin">
-            <p>緯度：<span id="latitude">???</span><span>度</span></p>
-            <p>経度：<span id="longitude">???</span><span>度</span></p>
-        </div>
+        <button id="searchArea">search</button>
     </div>
 
 
     <script src="./js/index.js"></script>
     <script src="./js/geolocation.js"></script>
 </body>
+
 </html>
