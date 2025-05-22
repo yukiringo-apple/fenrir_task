@@ -1,8 +1,21 @@
 // js/search.js
 function searchArea(latitude, longitude) {
-    const selectElement = document.getElementById('selectArea');
-    const selectedValue = selectElement.value;
-    const selectedText = selectElement.options[selectElement.selectedIndex].text;
+    // const selectElement = document.getElementById('selectArea');
+    // const selectedValue = selectElement.value;
+    // const selectedText = selectElement.options[selectElement.selectedIndex].text;
+
+
+    const rangeInput = document.getElementById('rangeSelect');
+    const selectedValueText = document.getElementById('selectedValue');
+    const labels = ["1", "2", "3", "4", "5"];
+    let selectedRangeIndex = 3;
+
+    rangeInput.addEventListener('input', function () {
+        selectedRangeIndex = parseInt(this.value);
+        selectedValueText.textContent = labels[selectedRangeIndex];
+    });
+
+    const selectedValue = labels[selectedRangeIndex];
 
     console.log('選ばれた値:', selectedValue);
     console.log('表示テキスト:', selectedText);

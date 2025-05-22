@@ -1,0 +1,38 @@
+:root {
+    --color-main: #fcc800;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main {
+    width: 100%;
+    background-color: var(--color-main);
+}
+
+.logoImg{
+    margin: 0 auto;
+    max-width: 200px;
+}
+
+/* CSS */
+.slider-container {
+  width: 300px;
+  margin: 20px;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-bottom: 5px;
+}

@@ -29,7 +29,7 @@ app.get('/api/search', async (req, res) => {
     }
 });
 
-// 静的ファイル配信（index.htmlやjsファイル）
+// おまじない
 app.use(express.static(__dirname));
 
 app.listen(PORT, () => {

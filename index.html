@@ -3,45 +3,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Geolocation Sample</title>
-</head>
+    <title>ぐるねっと</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/pc.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <link rel="stylesheet" href="./css/phone.css">
+
 
 <body>
-    <div class="center">
-        <div class="btn-margin">
-            <button id="getLocation" class="btn btn-outline-primary btn-lg">
-                現在位置を取得する
-            </button>
-        </div>
+    <div class="main">
+        <img class="logoImg" src="./img/logo_GOURNET_01.png">
 
-
-        <div class="txt-margin">
-            <p>緯度：<span id="latitude">???</span><span>度</span></p>
-            <p>経度：<span id="longitude">???</span><span>度</span></p>
-        </div>
-    </div>
-
-
-
-
-
-    <div>
-        <div class="">
-            <select id="selectArea" class="areaRadius">
-                <option value="1">300m</option>
-                <option value="2">500m</option>
-                <option value="3" selected>1km</option>
-                <option value="4">2km</option>
-                <option value="5">3km</option>
-
-            </select>
+        <div class="slider-container">
+            <label for="rangeSelect">距離の選択：</label>
+            <input type="range" id="rangeSelect" min="0" max="4" step="1" value="2">
+            <div class="labels">
+                <span>500m</span>
+                <span>1km</span>
+                <span>2km</span>
+                <span>3km</span>
+                <span>5km</span>
+            </div>
         </div>
         <button id="buttonSearchArea">search</button>
     </div>
 
+    </div>
 
     <script src="./js/index.js"></script>
-    <script src="./js/geolocation.js"></script>
+    <!-- <script src="./js/geolocation.js"></script> -->
     <script src="./js/search.js"></script>
 </body>
 
