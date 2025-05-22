@@ -15,3 +15,9 @@ window.onload = function () {
 
 }
 
+// エリア検索
+const eventSerchArea = document.getElementById("buttonSearchArea");
+eventSerchArea.addEventListener("click", function () {
+    searchArea(latitude,longitude);
+})
+
