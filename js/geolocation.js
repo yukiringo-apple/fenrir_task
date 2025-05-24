@@ -19,6 +19,9 @@ function getLocation() {
                 (position) => {
                     const latitude = position.coords.latitude;
                     const longitude = position.coords.longitude;
+
+                    console.log("現在地" + latitude, longitude);
+                    
                     resolve({ latitude, longitude });
                 },
                 (error) => {

@@ -12,13 +12,13 @@ function searchArea(latitude, longitude) {
 
     rangeInput.addEventListener('input', function () {
         selectedRangeIndex = parseInt(this.value);
-        selectedValueText.textContent = labels[selectedRangeIndex];
+        // selectedValueText.textContent = labels[selectedRangeIndex];
     });
 
     const selectedValue = labels[selectedRangeIndex];
 
     console.log('選ばれた値:', selectedValue);
-    console.log('表示テキスト:', selectedText);
+    // console.log('表示テキスト:', selectedText);
 
     const url = `/api/search?lat=${latitude}&lng=${longitude}&range=${selectedValue}`;
 
@@ -30,6 +30,13 @@ function searchArea(latitude, longitude) {
             return response.json();
         })
         .then(data => {
+
+            console.log("APIレスポンス全体:", data); // ← 追加
+
+            if (!data.results || !data.results.shop) {
+                console.error("results.shop が存在しません", data);
+                return;
+            }
             const results = data.results.shop;
             console.log(results);
         })

@@ -1,22 +1,31 @@
+/* main.css */
 :root {
-    --color-main: #fcc800;
+  --color-main: #fcc800;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .main {
-    width: 100%;
-    background-color: var(--color-main);
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-main);
+
+  /* 追加 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.logoImg{
-    margin: 0 auto;
-    max-width: 200px;
+.logoImg {
+  margin: 0 auto;
+  max-width: 200px;
 }
 
 /* CSS */

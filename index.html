@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
 
@@ -16,23 +17,23 @@
         <img class="logoImg" src="./img/logo_GOURNET_01.png">
 
         <div class="slider-container">
-            <label for="rangeSelect">距離の選択：</label>
-            <input type="range" id="rangeSelect" min="0" max="4" step="1" value="2">
+            <!-- <label for="rangeSelect">距離の選択：</label> -->
+            <input type="range" id="rangeSelect" min="1" max="5" step="1" value="3">
             <div class="labels">
+                <span>300m</span>
                 <span>500m</span>
                 <span>1km</span>
                 <span>2km</span>
                 <span>3km</span>
-                <span>5km</span>
             </div>
         </div>
         <button id="buttonSearchArea">search</button>
     </div>
 
-    </div>
+
 
     <script src="./js/index.js"></script>
-    <!-- <script src="./js/geolocation.js"></script> -->
+    <script src="./js/geolocation.js"></script>
     <script src="./js/search.js"></script>
 </body>
 

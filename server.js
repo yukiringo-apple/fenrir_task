@@ -8,6 +8,8 @@ const PORT = 3000;
 require('dotenv').config();
 const API_KEY = process.env.API_KEY;
 
+console.log(API_KEY)
+
 
 
 // 中継
