@@ -14,9 +14,29 @@ console.log(API_KEY)
 
 // 中継
 app.get('/api/search', async (req, res) => {
-    const { lat, lng, range, count, keyword, address } = req.query;
+    const { lat, lng, range, count, name_any, address } = req.query;
 
-    const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${API_KEY}&lat=${lat}&lng=${lng}&range=${range}&format=json&count=${count}&name_any=${keyword}&address=${address}`;
+    const params = new URLSearchParams();
+
+    params.append("key", API_KEY);
+    params.append("lat", lat);
+    params.append("lng", lng);
+    params.append("range", range);
+    params.append("count", count);
+    params.append("format","json")
+
+
+    if (name_any && name_any.trim() !== "") {
+        params.append("name_any", name_any);
+        params.append("address", address);
+    }
+
+    const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?${params.toString()}`
+
+    // const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${API_KEY}&lat=${lat}&lng=${lng}&range=${range}&format=json&count=${count}&name_any=${name_any}&address=${address}`;
+
+
+
 
     try {
         const response = await fetch(url);
@@ -25,6 +45,7 @@ app.get('/api/search', async (req, res) => {
         }
         const data = await response.json();
         res.json(data);
+        console.log(url);
     } catch (error) {
         console.error("APIリクエスト中にエラー:", error);
         res.status(500).json({ error: 'APIの取得に失敗しました', detail: error.message });
