@@ -1,45 +1,69 @@
 // js/search.js
-const rangeInput = document.getElementById('rangeSelect');
-const labels = ["1", "2", "3", "4", "5"];
-let selectedRangeIndex = 3;
+// 
 
-function searchArea(latitude, longitude) {
+async function searchArea(latitude, longitude, options = {}) {
 
-    rangeInput.addEventListener('input', function () {
-        // event : rangeSliderを動かしたとき値を保存する
-        selectedRangeIndex = parseInt(this.value);
-    });
+    try {
+        const range = options.range ?? 5;
+        const count = options.count ?? 100;
+        const keyword = options.keyword;
+        const address = options.keyword;
 
-    const selectedValue = labels[selectedRangeIndex];
+        const url = `/api/search?lat=${latitude}&lng=${longitude}&range=${range}&count=${count}&name_any=${keyword}&address=${address}`;
 
-    console.log('選ばれた値:', selectedValue);
+        const response = await fetch(url);
 
-    const url = `/api/search?lat=${latitude}&lng=${longitude}&range=${selectedValue}`;
+        if (!response.ok) {
+            throw new Error("APIの取得に失敗しました");
+        }
 
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("APIの取得に失敗しました");
-            }
-            return response.json();
-        })
-        .then(data => {
+        const data = await response.json();
 
-            console.log("APIレスポンス全体:", data);
+        if (!data.results || !data.results.shop) {
+            throw new Error("結果が不正です");
+        }
 
-            if (!data.results || !data.results.shop) {
-                console.error("results.shop が存在しません", data);
-                return;
-            }
+        const results = data.results.shop;
+        sessionStorage.setItem("searchResults", JSON.stringify(results));
 
-            const results = data.results.shop;
-            console.log(results);
+        return results;
 
-            sessionStorage.setItem("searchResults", JSON.stringify(data.results.shop));
-            window.location.href = "results.html";
+    } catch (error) {
+        console.error("エラーが発生しました:", error);
+        throw error; // 呼び出し元にエラーを伝える
+    }
 
-        })
-        .catch(error => {
-            console.error("エラーが発生しました:", error);
-        });
+
+    // return new Promise((resolve, reject) => {
+
+    //     // rangeInput.addEventListener('input', function () {
+    //     //     selectedRangeIndex = parseInt(this.value);
+    //     // });
+
+    //     // const selectedValue = labels[selectedRangeIndex];
+
+    //     const url = `/api/search?lat=${latitude}&lng=${longitude}&range=${3}&count=${100}`;
+
+    //     fetch(url)
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw new Error("APIの取得に失敗しました");
+    //             }
+    //             return response.json();
+    //         })
+    //         .then(data => {
+    //             if (!data.results || !data.results.shop) {
+    //                 reject("結果が不正です");
+    //                 return;
+    //             }
+
+    //             const results = data.results.shop;
+    //             sessionStorage.setItem("searchResults", JSON.stringify(results));
+    //             resolve(results);
+    //         })
+    //         .catch(error => {
+    //             console.error("エラーが発生しました:", error);
+    //             reject(error);
+    //         });
+    // });
 }

@@ -1,5 +1,125 @@
-.logoImg {
+.div-main-container {
+    width: 1025px;
+    height: 100%;
+    min-height: 100vh;
+    background-color: var(--color-main);
+
+    /* 中央揃え */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+}
+
+.div-logo {
+    width: 100%;
+    max-height: 600px;
+
+    aspect-ratio: 41 / 24;
+
+    /* 中央揃え */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-logo {
     max-width: 200px;
+
+    margin: 0 auto;
 }
 
 
+
+/* 検索ボックス input */
+.div-searchBox {
+    width: 100%;
+    min-width: 1025px;
+    background-color: aqua;
+
+    display: flex;
+    height: 200px;
+    padding: 35px 62px 35px 63px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.bg-searchBox {
+    display: flex;
+    width: 900px;
+    height: 130px;
+    padding: 35px 53px 35px 54px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 45px;
+    background: #FFF5EA;
+    box-shadow: 0px 0px 30px 5px rgba(39, 35, 31, 0.25);
+}
+
+.input-searchBox {
+    display: flex;
+    width: 793px;
+    height: 60px;
+    padding: 0px 211px 0px 29px;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 5px;
+    border: 5px solid #D0D3DB;
+    background: #F3F5F9;
+}
+
+
+/* カード表示 */
+#shop-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.shop-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.shop-item:hover {
+    transform: translateY(-5px);
+}
+
+.img-shop-list-main-pc {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.pagination {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #007BFF;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background: #aaa;
+    cursor: default;
+}

@@ -1,4 +1,6 @@
 /* main.css */
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+
 :root {
   --color-main: #fcc800;
 }
@@ -7,7 +9,8 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh;
+  background-color: var(--color-main);
+  font-family: "Kiwi Maru", serif;;
 }
 
 .main {

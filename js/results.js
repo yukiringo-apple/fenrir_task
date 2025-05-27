@@ -1,11 +1,13 @@
 // result.js
-const results = JSON.parse(sessionStorage.getItem("searchResults"));
+// 検索結果の一覧表示
 
-console.log(results);
+async function renderResults(results) {
 
+    const results = JSON.parse(sessionStorage.getItem("searchResults"));
 
-function renderResults(results) {
-    const container = document.getElementById("results-container");
+    console.log(results);
+
+    const container = document.getElementById("div-results-container");
     const isMobile = window.innerWidth < 768;
 
     if (!results || results.length === 0) {
@@ -30,7 +32,7 @@ function renderResults(results) {
                 <p>${shop.address}</p>
             `;
 
-            
+
             item.addEventListener("click", () => {
                 sessionStorage.setItem("selectedShop", JSON.stringify(shop));
                 location.href = "details.html";

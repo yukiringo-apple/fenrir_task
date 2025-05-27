@@ -14,9 +14,9 @@ console.log(API_KEY)
 
 // 中継
 app.get('/api/search', async (req, res) => {
-    const { lat, lng, range } = req.query;
+    const { lat, lng, range, count, keyword, address } = req.query;
 
-    const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${API_KEY}&lat=${lat}&lng=${lng}&range=${range}&format=json`;
+    const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${API_KEY}&lat=${lat}&lng=${lng}&range=${range}&format=json&count=${count}&name_any=${keyword}&address=${address}`;
 
     try {
         const response = await fetch(url);

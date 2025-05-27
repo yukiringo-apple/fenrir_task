@@ -13,12 +13,29 @@
 
 
 <body>
-    <div class="main">
-        <img class="logoImg" src="./img/logo_GOURNET_01.png">
+
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="945" height="422" viewBox="0 0 945 422" fill="none">
+        <path
+            d="M394.629 -581.134C502.47 -499.582 562.211 -380.893 670.569 -281.73C778.151 -182.269 933.573 -102.035 943.974 -9.84906C954.376 82.337 818.682 185.997 710.06 265.032C601.438 344.068 519.409 399.553 433.783 415.454C348.455 432.131 260.903 410.48 160.267 396.515C59.1533 383.623 -52.8954 379.376 -87.0946 320.355C-120.996 262.11 -75.9741 149.571 -67.5602 48.3918C-58.8486 -52.0107 -87.0426 -141.829 -86.8318 -273.702C-85.547 -405.097 -56.4525 -580.099 36.9903 -645.302C129.954 -709.43 286.49 -663.462 394.629 -581.134Z"
+            fill="#FFF5EA" />
+    </svg> -->
+
+    <div class="div-main-container">
+
+        <div class="div-logo">
+            <img class="img-logo" src="./img/logo_GOURNET_01.png">
+        </div>
+
+        <div class="div-searchBox">
+            <div class="bg-searchBox">
+                <input type="text" id="input-searchBox" class="input-searchBox">
+            </div>
+        </div>
 
         <div class="slider-container">
-            <!-- <label for="rangeSelect">距離の選択：</label> -->
+            <!-- rangeSelect 距離の選択 -->
             <input type="range" id="rangeSelect" min="1" max="5" step="1" value="3">
+
             <div class="labels">
                 <span>300m</span>
                 <span>500m</span>
@@ -30,9 +47,14 @@
         <button id="buttonSearchArea">search</button>
     </div>
 
+    <div id="div-results-container" class="div-results-container">
+        <!-- 検索結果の表示位置 -->
+    </div>
+
     <script src="./js/index.js"></script>
     <script src="./js/geolocation.js"></script>
     <script src="./js/search.js"></script>
+    <script src="./js/render.js"></script>
 </body>
 
 </html>

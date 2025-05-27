@@ -1,23 +1,46 @@
+// index.html
+// 全体の制御
+
 var latitude = 0;
 var longitude = 0;
 
 // onloadイベント
-window.onload = function () {
-    // 現在地の取得
-    getLocation()
-        .then((location) => {
-            latitude = location.latitude;
-            longitude = location.longitude;
-        })
-        .catch((error) => {
-            alert(error);
-        });
+// ページが読み込まれたとき
+window.onload = async function () {
 
+    try {
+        const location = await getLocation();
+
+        latitude = location.latitude;
+        longitude = location.longitude;
+
+        const results = await searchArea(latitude, longitude)
+
+        console.log(results)
+
+        await renderResults();
+
+    } catch (error) {
+        alert(error);
+    }
 }
+
+
 
 // エリア検索
 const eventSerchArea = document.getElementById("buttonSearchArea");
 eventSerchArea.addEventListener("click", function () {
-    searchArea(latitude,longitude);
+    const keyword = document.getElementById("input-searchBox");
+
+    if (!keyword) {
+        keyword = ""
+    }
+
+    try {
+        const recruits = searchArea(latitude, longitude, { keyword: keyword });
+        window.href = "./results.html";
+    } catch (error) {
+
+    }
 })
 
