@@ -1,0 +1,13 @@
+# node_modulesフォルダ
+node_modules/
+
+# .envファイル
+.env
+
+# buildやdistフォルダ
+dist/
+build/
+
+# 特定のサブフォルダ
+server/secrets/
+client/temp/

@@ -1,0 +1,6 @@
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+    background-color: #f0d0d0;
+  }
+}

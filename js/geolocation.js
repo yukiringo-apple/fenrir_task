@@ -12,25 +12,24 @@
 //     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 // };
 
-function getLocation(){
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    }else{
-        alert("むりぽよ")
-    }
+function getLocation() {
+    return new Promise((resolve, reject) => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+
+                    console.log("現在地" + latitude, longitude);
+                    
+                    resolve({ latitude, longitude });
+                },
+                (error) => {
+                    reject("位置情報が取得できませんでした");
+                }
+            );
+        } else {
+            reject("Geolocationに対応していません");
+        }
+    });
 }
-
-// 現在地の取得 成功
-function successCallback(position){
-    // latitude：緯度
-    // longitude：軽度
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-
-    return latitude,longitude;
-};
-
-// 取得に失敗した場合の処理
-function errorCallback(error){
-    alert("位置情報が取得できませんでした");
-};
