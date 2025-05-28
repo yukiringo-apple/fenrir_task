@@ -26,9 +26,11 @@ function renderResults(page = 1) {
         item.className = "shop-item";
         item.innerHTML = `
             <img class="img-shop-list-main-pc" src="${shop.photo.pc.l}">
+            <div class="text-area">
             <h4>${shop.name}</h4>
             <p>${shop.address}</p>
             <p class="p-small">${shop.name}/${shop.catch}</p>
+            </div>
         `;
 
         item.addEventListener("click", () => {

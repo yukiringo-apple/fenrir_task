@@ -19,9 +19,6 @@ app.get('/api/search', async (req, res) => {
     const params = new URLSearchParams();
 
     params.append("key", API_KEY);
-    params.append("lat", lat);
-    params.append("lng", lng);
-    params.append("range", range);
     params.append("count", count);
     params.append("format", "json")
 
@@ -29,6 +26,10 @@ app.get('/api/search', async (req, res) => {
     if (name_any && name_any.trim() !== "") {
         params.append("name_any", name_any);
         params.append("address", address);
+    } else {
+        params.append("lat", lat);
+        params.append("lng", lng);
+        params.append("range", range)
     }
 
     const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?${params.toString()}`
