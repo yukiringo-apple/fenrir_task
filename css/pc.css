@@ -1,14 +1,58 @@
+:root {
+    --color--charcoalBlack: rgb(39, 35, 31);
+    --color--charcoalBlack-shadow: rgb(26, 24, 21);
+    --color--snowMist: rgb(243, 245, 249);
+    --color--snowMist-shadow: rgb(208, 211, 219);
+    --color--peachCream: rgb(255, 245, 234);
+    --color--peachCream-shadow: rgb(234, 217, 196);
+    --color--crimsonPop: rgb(237, 21, 93);
+    --color--crimsonPop-shadow: rgb(161, 13, 64);
+    --color--goldenBeam: rgb(252, 200, 0);
+    --color--goldenBeam-shadow: rgb(184, 144, 0);
+    --color--TangerineFlame: rgb(255, 110, 41);
+    --color--TangerineFlame-shadow: rgb(179, 71, 29);
+
+    --color--underline: rgba(237, 21, 93, 0.5);
+    --box--shadow: rgba(39, 35, 31, 0.4);
+
+}
+
+h1 {
+    max-width: 1025px;
+    text-align: center;
+
+    font-size: 4rem;
+    font-weight: bold;
+
+    margin: 300px auto 60px auto;
+}
+
+.p-center{
+    max-width: 1025px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+
+    max-width: 1025px;
+    margin: 100px auto 0 auto;
+    text-align: center;
+}
+
 .div-main-container {
     width: 1025px;
     height: 100%;
     min-height: 100vh;
-    background-color: var(--color-main);
+    background-color: var(--color--goldenBeam);
 
     /* 中央揃え */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
 
     margin: 0 auto;
 }
@@ -32,43 +76,116 @@
     margin: 0 auto;
 }
 
+.slider-container {
+    margin-top: 20px;
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 0 5px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* input type="range" ジェネレーター */
+/* https://webspe.net/tools/input-range/ */
+#rangeSelect {
+    appearance: none;
+    width: 700px;
+    height: 20px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--color--crimsonPop) 50%, var(--color--snowMist) 50%);
+    cursor: pointer;
+}
+
+/* ツマミ：Chrome, Safari, Edge用 */
+#rangeSelect::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    background: var(--color--crimsonPop);
+    box-shadow: none;
+}
+
+/* ツマミ：Firefox用 */
+#rangeSelect::-moz-range-thumb {
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    background: var(--color--crimsonPop);
+    box-shadow: none;
+}
+
+
+
+
+
+/* button */
+.button-searchArea {
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+
+    color: var(--color--snowMist);
+    background-color: var(--color--TangerineFlame);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 0 0 var(--color--TangerineFlame-shadow);
+    transition: all 0.1s ease-in-out;
+}
+
+.button-searchArea:hover {
+    background-color: antiquewhite;
+    color: var(--color--charcoalBlack);
+    box-shadow: none;
+    transform: translateY(4px);
+}
 
 
 /* 検索ボックス input */
 .div-searchBox {
     width: 100%;
     min-width: 1025px;
-    background-color: aqua;
+
+    margin-bottom: 100px;
 
     display: flex;
-    height: 200px;
-    padding: 35px 62px 35px 63px;
+    height: 150px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
 }
 
 .bg-searchBox {
-    display: flex;
-    width: 900px;
-    height: 130px;
+    width: 750px;
+    height: auto;
     padding: 35px 53px 35px 54px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
 
-    border-radius: 45px;
+    border-radius: 20px;
     background: #FFF5EA;
     box-shadow: 0px 0px 30px 5px rgba(39, 35, 31, 0.25);
 }
 
 .input-searchBox {
     display: flex;
-    width: 793px;
-    height: 60px;
+    width: 450px;
+    height: 40px;
     padding: 0px 211px 0px 29px;
     align-items: center;
     flex-shrink: 0;
+
+    margin: 20px auto 0 auto;
 
     border-radius: 5px;
     border: 5px solid #D0D3DB;
@@ -77,49 +194,230 @@
 
 
 /* カード表示 */
+.div-results-container {
+    width: 993px;
+    max-width: 1009px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
 #shop-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+    /* 300px以上で自動3列 */
+    gap: 16px;
+    padding: 16px;
 }
 
 .shop-item {
-    border: 1px solid #ddd;
+    background-color: var(--color--snowMist);
     border-radius: 8px;
-    padding: 1rem;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    padding: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .shop-item:hover {
-    transform: translateY(-5px);
+    transform: scale(1.02);
 }
 
-.img-shop-list-main-pc {
+.shop-item img {
     width: 100%;
     height: auto;
+
+    object-fit: cover;
+    aspect-ratio: 1/1;
     border-radius: 4px;
 }
 
+.shop-item h4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin: 0;
+    font-weight: bold;
+
+    font-size: 18px;
+    /* 必要に応じて調整 */
+    line-height: 1.4;
+    /* 適宜調整 */
+    min-height: calc(1.4em * 2);
+    /* 2行分の高さを確保 */
+}
+
+.shop-item p {
+    color: var(--color--charcoalBlack);
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.shop-item .p-small {
+    font-size: 12px;
+}
+
+/* ページネーション */
 .pagination {
-    margin-top: 1rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 70px auto 300px auto;
 }
 
 .pagination button {
-    margin: 0 5px;
-    padding: 0.5rem 1rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     border: none;
-    background: #007BFF;
-    color: white;
-    border-radius: 4px;
+    background-color: var(--color--snowMist);
     cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s;
+    color: #27231F;
 }
 
 .pagination button:disabled {
-    background: #aaa;
+    background-color: var(--color--crimsonPop);
     cursor: default;
+    color: var(--color--snowMist);
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: var(--color--TangerineFlame);
+    color: var(--color--snowMist);
+}
+
+
+
+/* 詳細ページ */
+.div-detail-container {
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+
+    background-color: var(--color--snowMist);
+}
+
+#shop-detail {
+    height: 100%;
+}
+
+.div-flex {
+    height: 100%;
+    display: flex;
+}
+
+.transparent {
+    position: relative;
+    width: 40%;
+    height: auto;
+    overflow: hidden;
+}
+
+.transparent img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* グラデーションをかける擬似要素 */
+.transparent::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--color--snowMist) 100%);
+    pointer-events: none;
+}
+
+.div-shop-detail {
+    margin: 60px;
+    padding: 20px;
+    width: 60%;
+    background-color: var(--color--goldenBeam);
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0px 0px 30px 5px rgba(39, 35, 31, 0.25);
+}
+
+.info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#shop-detail .div-overflow {
+    height: auto;
+    overflow-y: auto;
+    padding-right: 10px;
+    background-color: var(--color--peachCream);
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px 10px 20px 10px;
+}
+
+#shop-detail h2 {
+    background-color: var(--color--peachCream);
+    color: var(--color--charcoalBlack);
+    margin: 20px 20px 40px 20px;
+    font-size: 2.3rem;
+    padding-left: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#shop-detail p {
+    line-height: 1.8;
+}
+
+#shop-detail a {
+    color: #00f;
+    text-decoration: underline;
+}
+
+#shop-detail span {
+    border: 1px solid var(--color--charcoalBlack);
+    padding: 5px 30px 5px 30px;
+    margin-right: 15px;
+}
+
+#shop-detail button {
+    width: 200px;
+    height: 30px;
+    border: none;
+    background-color: var(--color--TangerineFlame);
+    color: var(--color--snowMist);
+}
+
+#shop-detail button:hover {
+    background-color: var(--color--TangerineFlame-shadow);
+    transform: 0.2s;
+}
+
+#shop-detail .p-catch {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+}
+
+/* アンダーライン */
+#shop-detail .p-catch::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.1em;
+    width: 100%;
+    height: 0.5em;
+    background-color: var(--color--underline);
+    z-index: -1;
+
 }
