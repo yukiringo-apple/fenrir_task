@@ -1,6 +1,426 @@
+:root {
+  --color--charcoalBlack: rgb(39, 35, 31);
+  --color--charcoalBlack-shadow: rgb(26, 24, 21);
+  --color--snowMist: rgb(243, 245, 249);
+  --color--snowMist-shadow: rgb(208, 211, 219);
+  --color--peachCream: rgb(255, 245, 234);
+  --color--peachCream-shadow: rgb(234, 217, 196);
+  --color--crimsonPop: rgb(237, 21, 93);
+  --color--crimsonPop-shadow: rgb(161, 13, 64);
+  --color--goldenBeam: rgb(252, 200, 0);
+  --color--goldenBeam-shadow: rgb(184, 144, 0);
+  --color--TangerineFlame: rgb(255, 110, 41);
+  --color--TangerineFlame-shadow: rgb(179, 71, 29);
+
+  --color--underline: rgba(237, 21, 93, 0.5);
+  --box--shadow: rgba(39, 35, 31, 0.4);
+
+}
+
 @media screen and (max-width: 767px) {
+
+  html {
+    width: 100vw;
+    height: auto;
+  }
+
   body {
+    width: 100vw;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    max-width: 767px;
+
+    text-align: center;
+
+    font-size: 2rem;
+    font-weight: bold;
+
+    margin: 300px auto 60px auto;
+  }
+
+  .p-center {
+    max-width: 767px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h2 {
+
+    max-width: 767px;
+    margin: 100px auto 0 auto;
+    text-align: center;
+  }
+
+  .div-main-container {
+    max-width: 767px;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: var(--color--goldenBeam);
+
+    /* 中央揃え */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    margin: 0 auto;
+  }
+
+  .div-logo {
+    width: 100%;
+    height: 600px;
+
+    aspect-ratio: 41 / 24;
+
+    /* 中央揃え */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-logo {
+    max-width: 200px;
+
+    margin: 0 auto;
+  }
+
+  .slider-container {
+    margin-top: 20px;
+  }
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    padding: 0 5px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  /* input type="range" ジェネレーター */
+  /* https://webspe.net/tools/input-range/ */
+  #rangeSelect {
+    appearance: none;
+    width: 300px;
+    height: 20px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--color--crimsonPop) 50%, var(--color--snowMist) 50%);
+    cursor: pointer;
+  }
+
+  /* ツマミ：Chrome, Safari, Edge用 */
+  #rangeSelect::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    background: var(--color--crimsonPop);
+    box-shadow: none;
+  }
+
+  /* ツマミ：Firefox用 */
+  #rangeSelect::-moz-range-thumb {
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    background: var(--color--crimsonPop);
+    box-shadow: none;
+  }
+
+
+
+
+
+  /* button */
+  .button-searchArea {
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+
+    color: var(--color--snowMist);
+    background-color: var(--color--TangerineFlame);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 0 0 var(--color--TangerineFlame-shadow);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .button-searchArea:hover {
+    background-color: antiquewhite;
+    color: var(--color--charcoalBlack);
+    box-shadow: none;
+    transform: translateY(4px);
+  }
+
+
+  /* 検索ボックス input */
+  .div-searchBox {
+    width: 100%;
+    max-width: 767px;
+
+    margin-bottom: 100px;
+
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .bg-searchBox {
+    width: 80%;
+    height: auto;
+    padding: 15px 25px 15px 25px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 20px;
+    background: #FFF5EA;
+    box-shadow: 0px 0px 30px 5px rgba(39, 35, 31, 0.25);
+  }
+
+  .input-searchBox {
+    display: flex;
+    width: 250px;
+    height: 40px;
+    padding: 0px 21px 0px 29px;
+    align-items: center;
+    flex-shrink: 0;
+
+    margin: 20px auto 0 auto;
+
+    border-radius: 5px;
+    border: 5px solid #D0D3DB;
+    background: #F3F5F9;
+  }
+
+
+  /* リスト表示 */
+  .div-results-container {
+    max-width: 740px;
+    max-width: 1009px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  #shop-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px;
+  }
+
+  .shop-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--color--snowMist);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .shop-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    aspect-ratio: auto;
+    /* スマホでは縦横比を固定しない */
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .shop-item .text-area {
+    flex: 1;
+  }
+
+  .shop-item h4 {
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    -webkit-line-clamp: 2;
+  }
+
+  .shop-item p {
     font-size: 14px;
-    background-color: #f0d0d0;
+    color: var(--color--charcoalBlack);
+  }
+
+  .shop-item .p-small {
+    font-size: 12px;
+  }
+
+  /* ページネーション */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 70px auto 300px auto;
+  }
+
+  .pagination button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color--snowMist);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s;
+    color: #27231F;
+  }
+
+  .pagination button:disabled {
+    background-color: var(--color--crimsonPop);
+    cursor: default;
+    color: var(--color--snowMist);
+  }
+
+  .pagination button:hover:not(:disabled) {
+    background-color: var(--color--TangerineFlame);
+    color: var(--color--snowMist);
+  }
+
+
+
+  /* 詳細ページ */
+  .div-detail-container {
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+
+    background-color: var(--color--snowMist);
+  }
+
+  #shop-detail {
+    width: 100%;
+    height: 100%;
+  }
+
+  .div-flex {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+  }
+
+  .transparent {
+    position: absolute;
+
+    top: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .transparent img {
+    width: 100%;
+    height: 300px
+    ;
+    object-fit: cover;
+    display: block;
+  }
+
+
+  .div-shop-detail {
+    position: absolute;
+
+    top: 150px;
+    padding: 20px;
+    width: calc(100%-40px);
+    background-color: var(--color--goldenBeam);
+    height: auto;
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0px 0px 30px 5px rgba(39, 35, 31, 0.25);
+  }
+
+  .info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #shop-detail .div-overflow {
+    height: auto;
+    overflow-y: auto;
+    padding-right: 10px;
+    background-color: var(--color--peachCream);
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 20px 10px 20px 10px;
+  }
+
+  #shop-detail h2 {
+    background-color: var(--color--peachCream);
+    color: var(--color--charcoalBlack);
+    margin: 5px 5px 5px 5px;
+    font-size: 1.8rem;
+    padding-left: 15px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  #shop-detail p {
+    line-height: 1.8;
+  }
+
+  #shop-detail a {
+    color: #00f;
+    text-decoration: underline;
+  }
+
+  #shop-detail span {
+    border: 1px solid var(--color--charcoalBlack);
+    padding: 5px 30px 5px 30px;
+    margin-right: 15px;
+  }
+
+  #shop-detail button {
+    width: 200px;
+    height: 30px;
+    border: none;
+    background-color: var(--color--TangerineFlame);
+    color: var(--color--snowMist);
+  }
+
+  #shop-detail button:hover {
+    background-color: var(--color--TangerineFlame-shadow);
+    transform: 0.2s;
+  }
+
+  #shop-detail .p-catch {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+  }
+
+  /* アンダーライン */
+  #shop-detail .p-catch::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.1em;
+    width: 100%;
+    height: 0.5em;
+    background-color: var(--color--underline);
+    z-index: -1;
+
   }
 }

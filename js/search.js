@@ -11,10 +11,13 @@ async function searchArea(latitude, longitude, options = {}) {
         params.append("range", options.range ?? 5)
         params.append("count", 99)
 
-
         if (options.keyword && options.keyword.trim() !== "") {
+            // キーワード検索：rangeはつけない
             params.append("name_any", options.keyword);
             params.append("address", options.keyword);
+        } else {
+            // 通常検索：rangeをつける
+            params.append("range", options.range ?? 5);
         }
 
         const url = `/api/search?${params.toString()}`;
