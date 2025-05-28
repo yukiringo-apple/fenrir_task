@@ -40,43 +40,41 @@ window.onload = async function () {
 // })
 
 document.addEventListener("DOMContentLoaded", function () {
-  const buttonSearchArea = document.getElementById("buttonSearchArea");
+  const buttonSearchKeyword = document.getElementById("buttonSearchKeyword");
+  const buttonSearchRange = document.getElementById("buttonSearchRange");
   const range = document.getElementById("rangeSelect");
 
-
-  // つまみに合わせて色を変える
+  // スライダー色変更
   range.addEventListener("input", () => {
     const value = range.value;
     const min = range.min || 0;
     const max = range.max || 100;
-
     const percent = ((value - min) / (max - min)) * 100;
-
     range.style.background = `linear-gradient(90deg, var(--color--crimsonPop) ${percent}%, var(--color--snowMist) ${percent}%)`;
   });
 
-
-  // 初期値の設定
+  // 初期描画
   range.dispatchEvent(new Event("input"));
 
-  if (buttonSearchArea && range) {
-    buttonSearchArea.addEventListener("click", function () {
+  // キーワード検索
+  if (buttonSearchKeyword) {
+    buttonSearchKeyword.addEventListener("click", function () {
       const keyword = document.getElementById("input-searchBox").value.trim();
-      // const sliderValue = range.value;
-
       console.log("キーワード:", keyword);
-      console.log("スライダーの値:", range);
 
-      searchArea(latitude, longitude, {
-        keyword: keyword,
-        range: range
-      });
-
+      searchArea(latitude, longitude, { keyword: keyword });
       window.location.href = "./results.html";
     });
-  } else {
-    console.error("検索ボタンかスライダーが見つかりません");
+  }
+
+  // 範囲検索
+  if (buttonSearchRange) {
+    buttonSearchRange.addEventListener("click", function () {
+      const rangeValue = range.value;
+      console.log("スライダーの値:", rangeValue);
+
+      searchArea(latitude, longitude, { range: rangeValue });
+      window.location.href = "./results.html";
+    });
   }
 });
-
-

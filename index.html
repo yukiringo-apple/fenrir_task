@@ -29,10 +29,13 @@
 
         <div class="div-searchBox">
             <div class="bg-searchBox">
+                <p class="p-center">キーワードから検索</p>
                 <input type="text" id="input-searchBox" class="input-searchBox" placeholder="店名・エリアなどを入力してください">
+                <button id="buttonSearchKeyword" class="button-searchArea">検索</button>
             </div>
         </div>
 
+        <p class="p-center">現在地の範囲から検索</p>
         <div class="slider-container">
             <!-- rangeSelect 距離の選択 -->
             <input type="range" id="rangeSelect" min="1" max="5" step="1" value="3">
@@ -45,22 +48,25 @@
                 <span>3km</span>
             </div>
         </div>
-        <button id="buttonSearchArea">検索</button>
+        <button id="buttonSearchRange" class="button-searchArea">検索</button>
     </div>
 
 
+    <div class="line"></div>
+
     <h1>GOURNET</h1>
+    <p class="p-center">現在地とテキストボックスから検索可！</p>
 
-    <h2 class="p-center">現在地周辺店舗</p>
+    <h2>現在地周辺店舗</h2>
 
-        <div id="div-results-container" class="div-results-container">
-            <!-- 検索結果の表示位置 -->
-        </div>
+    <div id="div-results-container" class="div-results-container">
+        <!-- 検索結果の表示位置 -->
+    </div>
 
-        <script src="./js/index.js"></script>
-        <script src="./js/geolocation.js"></script>
-        <script src="./js/search.js"></script>
-        <script src="./js/render.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/geolocation.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/render.js"></script>
 </body>
 
 </html>
