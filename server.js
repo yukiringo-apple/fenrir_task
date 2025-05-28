@@ -23,7 +23,7 @@ app.get('/api/search', async (req, res) => {
     params.append("lng", lng);
     params.append("range", range);
     params.append("count", count);
-    params.append("format","json")
+    params.append("format", "json")
 
 
     if (name_any && name_any.trim() !== "") {
@@ -32,11 +32,6 @@ app.get('/api/search', async (req, res) => {
     }
 
     const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?${params.toString()}`
-
-    // const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${API_KEY}&lat=${lat}&lng=${lng}&range=${range}&format=json&count=${count}&name_any=${name_any}&address=${address}`;
-
-
-
 
     try {
         const response = await fetch(url);

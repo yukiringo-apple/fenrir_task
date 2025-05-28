@@ -1,6 +1,6 @@
 <!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/pc.css">
     <link rel="stylesheet" href="./css/tablet.css">
     <link rel="stylesheet" href="./css/phone.css">
+</head>
 
 
 <body>
@@ -28,7 +29,7 @@
 
         <div class="div-searchBox">
             <div class="bg-searchBox">
-                <input type="text" id="input-searchBox" class="input-searchBox">
+                <input type="text" id="input-searchBox" class="input-searchBox" placeholder="店名・エリアなどを入力してください">
             </div>
         </div>
 
@@ -44,17 +45,22 @@
                 <span>3km</span>
             </div>
         </div>
-        <button id="buttonSearchArea">search</button>
+        <button id="buttonSearchArea">検索</button>
     </div>
 
-    <div id="div-results-container" class="div-results-container">
-        <!-- 検索結果の表示位置 -->
-    </div>
 
-    <script src="./js/index.js"></script>
-    <script src="./js/geolocation.js"></script>
-    <script src="./js/search.js"></script>
-    <script src="./js/render.js"></script>
+    <h1>GOURNET</h1>
+
+    <h2 class="p-center">現在地周辺店舗</p>
+
+        <div id="div-results-container" class="div-results-container">
+            <!-- 検索結果の表示位置 -->
+        </div>
+
+        <script src="./js/index.js"></script>
+        <script src="./js/geolocation.js"></script>
+        <script src="./js/search.js"></script>
+        <script src="./js/render.js"></script>
 </body>
 
 </html>
